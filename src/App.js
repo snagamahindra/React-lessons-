@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-function App() {
+function CounterComponent() {
   const [counter, setCounter] = useState(0);
 
   const increment = () => {
@@ -68,4 +68,7 @@ function App() {
   );
 }
 
-export default App;
+export default CounterComponent;
+
+
+
