@@ -1,14 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './pages/Landing';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import Landing from './pages/Landing';
+import FormHandling from './pages/FormHandling';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Landing/>
+    ),
+  },
+  {
+    path: "form-handling",
+    element: <FormHandling />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
+    {/* <App /> */}
   </React.StrictMode>
 );
 
