@@ -55,18 +55,44 @@ const FormHandling = () => {
       password: passwordError,
     });
   };
+ 
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // Reset previous errors
+      setUsernameError("");
+      setEmailError("");
+      setPasswordError("");
+
+      // Validate username
       if (!username || username === "" || username === undefined)
         return setUsernameError("Please enter a Username");
 
+      // Validate email
+      if (!email || email === "" || email === undefined)
+        return setEmailError("Please enter an Email");
+
+      if (!email.includes("@")) 
+        return setEmailError("Email must contain @");
+
+      // Validate password
+      if (!password || password === "" || password === undefined)
+        return setPasswordError("Please enter a Password");
+
+      if (password.length < 6)
+        return setPasswordError("Password must be at least 6 characters long");
+  
+      if (!/[A-Z]/.test(password))
+        return setPasswordError("Password must contain at least one capital letter");
+  
+      if (!/[!@#$%^&*(),.?":{}|<>]/.test(password))
+        return setPasswordError("Password must contain at least one symbol");  
+
       console.log({ username, email, password });
       setLoading(true);
-      
-      setUsernameError("")
+
       setTimeout(() => {
         setLoading(false);
       }, 3000);
@@ -102,7 +128,7 @@ const FormHandling = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
             />
-            <div className="text-danger">{errors.email}</div>
+            {emailError && ( <div className="text-danger">{emailError}</div>)}
           </div>
 
           <div className="my-3">
@@ -112,7 +138,9 @@ const FormHandling = () => {
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
             />
-            <div className="text-danger">{errors.password}</div>
+            {passwordError && (
+              <div className="text-danger">{passwordError}</div>
+            )}
           </div>
 
           {loading ? (

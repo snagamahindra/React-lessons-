@@ -12,6 +12,9 @@ import {
 } from "react-router-dom";
 import Landing from './pages/Landing';
 import FormHandling from './pages/FormHandling';
+import ThemeContext from './pages/ThemeContext'
+import StateManagement from './pages/StateManagement'
+import LocalStorage from './pages/LocalStorage'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +26,18 @@ const router = createBrowserRouter([
   {
     path: "form-handling",
     element: <FormHandling />,
+  },
+  {
+    path: "theme-context",
+    element: <ThemeContext />,
+  },
+  {
+    path: "state-management",
+    element: <StateManagement/>
+  },
+  {
+    path: "local-storage",
+    element: <LocalStorage />
   },
 ]);
 
