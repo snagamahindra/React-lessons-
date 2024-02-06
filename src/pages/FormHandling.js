@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
+import { Link } from "react-router-dom"
+import Menu from "../componets/Menu"; 
 
 const FormHandling = () => {
   // Define state variables for form fields and errors
@@ -107,6 +109,7 @@ const FormHandling = () => {
 
   return (
     <div className="bg-light">
+      <Menu/>
       <div className="container py-5">
         <form onSubmit={handleSubmit} className="card p-5 shadow">
           <div className="my-3">

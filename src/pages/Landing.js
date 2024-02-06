@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
+import Menu from "../componets/Menu"; 
 
 function Landing() {
   const [counter, setCounter] = useState(0);
@@ -31,6 +33,7 @@ function Landing() {
 
   return (
     <div className="container p-5">
+      <Menu/>
       <div className="d-flex">
         <div className="p-2">
           <button className="btn btn-primary" onClick={increment}>

@@ -1,5 +1,7 @@
 
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
+import Menu from "../componets/Menu"; 
 
 // Custom hook for persisting state in local storage
 const useLocalStorage = (key, initialValue) => {
@@ -25,6 +27,7 @@ const LocalStorage = () => {
 
   return (
     <div className="container py-5 bg-light">
+      <Menu/>
       <h5>Count: {count}</h5>
       <div className="d-flex">
       <div className="p-2">
@@ -48,7 +51,7 @@ const LocalStorage = () => {
       </div>
 
       <div className="p-2">
-        <button className="btn btn-dark" onClick={() => setCount(0/1)}>Infinity</button>
+        <button className="btn btn-dark" onClick={() => setCount(1/0)}>Infinity</button>
       </div>
     </div>
       </div>

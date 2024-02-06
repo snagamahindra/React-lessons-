@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
+import { Link } from "react-router-dom"
+import Menu from "../componets/Menu"; 
 
 // Create a context with a default theme
 const ThemeContext = createContext('light');
@@ -33,6 +35,9 @@ const ThemedComponent = () => {
 
   return (
     <div className="bg-light container py-5">
+      <div>
+        <Menu/>
+      </div>
       <h1 style={{ color: theme === 'light' ? 'black' : 'white', backgroundColor: theme === 'light' ? 'white' : 'black' }}>
         ThemedComponent - Current Theme: {theme}
       </h1>

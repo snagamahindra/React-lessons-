@@ -1,4 +1,6 @@
 import React, { useReducer, useState } from 'react';
+import { Link } from "react-router-dom"
+import Menu from "../componets/Menu"; 
 
 // Define initial state
 const initialState = {
@@ -75,6 +77,7 @@ const StateManagement = () => {
 
   return (
     <div className="container py-5 bg-light">
+      <Menu/>
       <ul>
         {state.items.map(item => (
           <li key={item.id}>
